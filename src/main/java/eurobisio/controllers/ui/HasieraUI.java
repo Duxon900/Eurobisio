@@ -18,7 +18,7 @@ public class HasieraUI extends Parent {
 
     @FXML
     void onClick(ActionEvent event) {
-
+        mainApp.pantailaratuHerrialdeHautatu();
     }
 
 }

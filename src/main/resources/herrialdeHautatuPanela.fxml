@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eurobisio.controllers.ui.HerrialdeHautatuUI">
+   <children>
+      <Text layoutX="206.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aukeratu zein herrialdeak egin nahi duen bozkaketa:" wrappingWidth="187.10498046875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cmbxHerrialde" layoutX="186.0" layoutY="224.0" prefHeight="26.0" prefWidth="227.0" promptText="aukeratu zure herrialdea" />
+      <Button layoutX="262.0" layoutY="307.0" mnemonicParsing="false" onAction="#onClick" prefHeight="26.0" prefWidth="75.0" text="OK" />
+   </children>
+</AnchorPane>

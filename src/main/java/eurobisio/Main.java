@@ -5,6 +5,7 @@ package eurobisio;
 
 import eurobisio.controllers.HasieraKud;
 import eurobisio.controllers.ui.HasieraUI;
+import eurobisio.controllers.ui.HerrialdeHautatuUI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,18 +16,20 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-
-    //UI
-    private Parent hasiera;
-
     //Stage
     private Stage stage;
 
+    //parent
+    private Parent hasiera;
+    private Parent herrialdeHautatu;
+
     //Kudeatzaileak
     private HasieraUI hasieraUI;
+    private HerrialdeHautatuUI herrialdeHautatuUI;
 
     //Sceneak
     private Scene hasieraScene;
+    private Scene herrialdeHautatuScene;
 
     public static void Main(String[] args){
         launch(args);
@@ -36,17 +39,31 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage=primaryStage;
         pantailaGuztiakKargatu();
-
         stage.setTitle("Eurobisio");
+
+        //Scene guztiak kargatu
         hasieraScene=new Scene(hasiera,300,300);
+        herrialdeHautatuScene=new Scene(herrialdeHautatu,600,400);
+
         stage.setScene(hasieraScene);
         stage.show();
     }
 
     public void pantailaGuztiakKargatu() throws IOException {
-        FXMLLoader hasieraloader=new FXMLLoader(getClass().getResource("/hasierakoPanela.fxml"));
-        hasiera=(Parent)hasieraloader.load();
-        hasieraUI=hasieraloader.getController();
+        //kargatu hasiera
+        FXMLLoader hasieraLoader=new FXMLLoader(getClass().getResource("/hasierakoPanela.fxml"));
+        hasiera=(Parent)hasieraLoader.load();
+        hasieraUI=hasieraLoader.getController();
         hasieraUI.setMainApp(this);
+
+        //kargatu herrialde hautatu
+        FXMLLoader herrialdeHautatuLoader=new FXMLLoader(getClass().getResource("/herrialdeHautatuPanela.fxml"));
+        herrialdeHautatu=(Parent) herrialdeHautatuLoader.load();
+        herrialdeHautatuUI=herrialdeHautatuLoader.getController();
+        herrialdeHautatuUI.setMainApp(this);
+    }
+
+    public void pantailaratuHerrialdeHautatu(){
+        stage.setScene(herrialdeHautatuScene);
     }
 }

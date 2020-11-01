@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="EurobisioEntregarako@localhost" uuid="2c44f084-74f4-4d05-b593-076c0bb1fc00">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/EurobisioEntregarako</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="Europe/Madrid" />
+      </driver-properties>
+    </data-source>
+  </component>
+</project>

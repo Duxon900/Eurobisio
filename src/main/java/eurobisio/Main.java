@@ -42,7 +42,7 @@ public class Main extends Application {
         stage.setTitle("Eurobisio");
 
         //Scene guztiak kargatu
-        hasieraScene=new Scene(hasiera,300,300);
+        hasieraScene=new Scene(hasiera,300,209);
         herrialdeHautatuScene=new Scene(herrialdeHautatu,600,400);
 
         stage.setScene(hasieraScene);

@@ -19,7 +19,7 @@
       <Button layoutX="262.0" layoutY="307.0" mnemonicParsing="false" onAction="#onClick" prefHeight="26.0" prefWidth="75.0" text="OK" />
       <ImageView fitHeight="63.0" fitWidth="199.0" layoutX="201.0" layoutY="45.0">
          <image>
-            <Image url="@eurobisioLogo.png" />
+            <Image url="@../eurobisioLogo.png" />
          </image>
       </ImageView>
    </children>

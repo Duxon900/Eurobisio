@@ -10,7 +10,7 @@
       <Button layoutX="92.0" layoutY="137.0" mnemonicParsing="false" onAction="#onClick" text="Bozkaketa hasi" />
       <ImageView fitHeight="63.0" fitWidth="199.0" layoutX="51.0" layoutY="47.0">
          <image>
-            <Image url="@eurobisioLogo.png" />
+            <Image url="@../eurobisioLogo.png" />
          </image>
       </ImageView>
    </children>

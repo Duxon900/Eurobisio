@@ -3,7 +3,7 @@
  */
 package eurobisio;
 
-import eurobisio.controllers.HasieraKud;
+import eurobisio.controllers.ui.ErroreaUI;
 import eurobisio.controllers.ui.HasieraUI;
 import eurobisio.controllers.ui.HerrialdeHautatuUI;
 import javafx.application.Application;
@@ -22,14 +22,17 @@ public class Main extends Application {
     //parent
     private Parent hasiera;
     private Parent herrialdeHautatu;
+    private Parent errorea;
 
     //Kudeatzaileak
     private HasieraUI hasieraUI;
     private HerrialdeHautatuUI herrialdeHautatuUI;
+    private ErroreaUI erroreaUI;
 
     //Sceneak
     private Scene hasieraScene;
     private Scene herrialdeHautatuScene;
+    private Scene erroreScene;
 
     public static void Main(String[] args){
         launch(args);
@@ -51,16 +54,22 @@ public class Main extends Application {
 
     public void pantailaGuztiakKargatu() throws IOException {
         //kargatu hasiera
-        FXMLLoader hasieraLoader=new FXMLLoader(getClass().getResource("/hasierakoPanela.fxml"));
+        FXMLLoader hasieraLoader=new FXMLLoader(getClass().getResource("/scenak/hasierakoPanela.fxml"));
         hasiera=(Parent)hasieraLoader.load();
         hasieraUI=hasieraLoader.getController();
         hasieraUI.setMainApp(this);
 
         //kargatu herrialde hautatu
-        FXMLLoader herrialdeHautatuLoader=new FXMLLoader(getClass().getResource("/herrialdeHautatuPanela.fxml"));
+        FXMLLoader herrialdeHautatuLoader=new FXMLLoader(getClass().getResource("/scenak/herrialdeHautatuPanela.fxml"));
         herrialdeHautatu=(Parent) herrialdeHautatuLoader.load();
         herrialdeHautatuUI=herrialdeHautatuLoader.getController();
         herrialdeHautatuUI.setMainApp(this);
+
+        //kargatu errorea
+        FXMLLoader erroreLoader=new FXMLLoader(getClass().getResource("/scenak/erroreaPanlea.fxml"));
+        errorea=(Parent) erroreLoader.load();
+        erroreaUI=erroreLoader.getController();
+        erroreaUI.setMainApp(this);
     }
 
     public void pantailaratuHerrialdeHautatu(){

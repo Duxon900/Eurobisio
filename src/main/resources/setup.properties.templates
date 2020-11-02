@@ -1,5 +1,6 @@
 dbname=
 user=
 password=
-useSSL=
+useSSL=false
+allowPublicKeyRetrieval=true
 serverTimezone=

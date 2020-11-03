@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eurobisio.controllers.ui.TopHiruUI">
+   <children>
+      <Text layoutX="198.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOP 3:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="258.0" layoutY="328.0" mnemonicParsing="false" onAction="#onClick" prefHeight="26.0" prefWidth="83.0" text="OK" />
+      <ImageView fitHeight="63.0" fitWidth="199.0" layoutX="258.0" layoutY="34.0">
+         <image>
+            <Image url="@../eurobisioLogo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="258.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Irabazlea - 69 puntu" />
+      <Label layoutX="257.0" layoutY="215.0" text="irabazle 2 - 69 pntu" />
+      <Label layoutX="258.0" layoutY="258.0" text="irabazle 3 - 69 puntu" />
+   </children>
+</AnchorPane>

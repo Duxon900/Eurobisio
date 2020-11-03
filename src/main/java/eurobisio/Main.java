@@ -3,9 +3,7 @@
  */
 package eurobisio;
 
-import eurobisio.controllers.ui.ErroreaUI;
-import eurobisio.controllers.ui.HasieraUI;
-import eurobisio.controllers.ui.HerrialdeHautatuUI;
+import eurobisio.controllers.ui.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,16 +21,22 @@ public class Main extends Application {
     private Parent hasiera;
     private Parent herrialdeHautatu;
     private Parent errorea;
+    private Parent herrialdeBozkatu;
+    private Parent topHiru;
 
     //Kudeatzaileak
     private HasieraUI hasieraUI;
     private HerrialdeHautatuUI herrialdeHautatuUI;
     private ErroreaUI erroreaUI;
+    private HerriakBozkatuUI herriakBozkatuUI;
+    private TopHiruUI topHiruUI;
 
     //Sceneak
     private Scene hasieraScene;
     private Scene herrialdeHautatuScene;
     private Scene erroreScene;
+    private Scene herriakBozkatuScene;
+    private Scene topHiruScene;
 
     public static void Main(String[] args){
         launch(args);
@@ -47,6 +51,9 @@ public class Main extends Application {
         //Scene guztiak kargatu
         hasieraScene=new Scene(hasiera,300,209);
         herrialdeHautatuScene=new Scene(herrialdeHautatu,600,400);
+        erroreScene=new Scene(errorea,600,273);
+        herriakBozkatuScene=new Scene(herrialdeBozkatu,600,400);
+        topHiruScene=new Scene(topHiru,482,400);
 
         stage.setScene(hasieraScene);
         stage.show();
@@ -70,9 +77,33 @@ public class Main extends Application {
         errorea=(Parent) erroreLoader.load();
         erroreaUI=erroreLoader.getController();
         erroreaUI.setMainApp(this);
+
+        //kargatu herrialde bozkatu
+        FXMLLoader bozkatuLoader=new FXMLLoader(getClass().getResource("/scenak/herriakBozkatuPanela.fxml"));
+        herrialdeBozkatu=(Parent) bozkatuLoader.load();
+        herriakBozkatuUI=bozkatuLoader.getController();
+        herriakBozkatuUI.setMainApp(this);
+
+        //kargatu top hiru
+        FXMLLoader topHiruLoader=new FXMLLoader(getClass().getResource("/scenak/topHiruPanela.fxml"));
+        topHiru=(Parent)topHiruLoader.load();
+        topHiruUI=topHiruLoader.getController();
+        topHiruUI.setMainApp(this);
     }
 
     public void pantailaratuHerrialdeHautatu(){
         stage.setScene(herrialdeHautatuScene);
+    }
+
+    public void pantailaratuHerriakBozkatu(){
+        stage.setScene(herriakBozkatuScene);
+    }
+
+    public void pantailaratuErrorea(){
+        stage.setScene(erroreScene);
+    }
+
+    public void pantailaratuTopHiru(){
+        stage.setScene(topHiruScene);
     }
 }

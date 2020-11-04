@@ -3,15 +3,22 @@ package eurobisio.controllers.ui;
 import eurobisio.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.text.Text;
 
-public class ErroreaUI {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ErroreaUI  {
 
     private Main mainApp;
 
+    @FXML
+    private Text txtHerria;
 
     @FXML
     void onClick(ActionEvent event) {
-        System.out.println("okay bro no me cuentes tu vida");
+        mainApp.pantailaratuHasiera();
     }
 
 
@@ -19,5 +26,10 @@ public class ErroreaUI {
         this.mainApp = mainApp;
     }
 
+    public void hasieratuTestua(String izena){
+        String testua=txtHerria.getText();
+        testua=testua.replace("ADRE",izena);
+        txtHerria.setText(testua);
+    }
 
 }

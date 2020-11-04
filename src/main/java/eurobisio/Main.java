@@ -73,13 +73,13 @@ public class Main extends Application {
         herrialdeHautatuUI.setMainApp(this);
 
         //kargatu errorea
-        FXMLLoader erroreLoader=new FXMLLoader(getClass().getResource("/scenak/erroreaPanlea.fxml"));
+        FXMLLoader erroreLoader=new FXMLLoader(getClass().getResource("/scenak/erroreaPanela.fxml"));
         errorea=(Parent) erroreLoader.load();
         erroreaUI=erroreLoader.getController();
         erroreaUI.setMainApp(this);
 
         //kargatu herrialde bozkatu
-        FXMLLoader bozkatuLoader=new FXMLLoader(getClass().getResource("/scenak/herriakBozkatuPanela.fxml"));
+        FXMLLoader bozkatuLoader=new FXMLLoader(getClass().getResource("/scenak/HerriakBozkatuPanela.fxml"));
         herrialdeBozkatu=(Parent) bozkatuLoader.load();
         herriakBozkatuUI=bozkatuLoader.getController();
         herriakBozkatuUI.setMainApp(this);
@@ -89,6 +89,10 @@ public class Main extends Application {
         topHiru=(Parent)topHiruLoader.load();
         topHiruUI=topHiruLoader.getController();
         topHiruUI.setMainApp(this);
+    }
+
+    public void pantailaratuHasiera(){
+        stage.setScene(hasieraScene);
     }
 
     public void pantailaratuHerrialdeHautatu(){
@@ -105,5 +109,10 @@ public class Main extends Application {
 
     public void pantailaratuTopHiru(){
         stage.setScene(topHiruScene);
+    }
+
+
+    public ErroreaUI getErroreaUI() {
+        return erroreaUI;
     }
 }

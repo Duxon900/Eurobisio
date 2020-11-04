@@ -16,7 +16,7 @@ public class TopHiruUI {
 
     @FXML
     void onClick(ActionEvent event) {
-
+        mainApp.pantailaratuHasiera();
     }
 
 }

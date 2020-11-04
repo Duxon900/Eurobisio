@@ -11,4 +11,23 @@ public class HerrialdeHautatuDBKud {
         ResultSet emaitza= dbKudeatzaile.execSQL(query);
         return emaitza;
     }
+
+    public ResultSet lortuBandera(String izena){
+
+        //SELECT bandera FROM Herrialde WHERE izena='Belgika';
+        String query="SELECT bandera FROM Herrialde WHERE izena='"+izena+"'";
+
+        DBKudeatzaile dbKudeatzaile=DBKudeatzaile.getInstantzia();
+        ResultSet emaitza=dbKudeatzaile.execSQL(query);
+        return emaitza;
+    }
+
+    public ResultSet emandakoPuntuak(String izena){
+        //SELECT puntuak FROM Bozkaketa WHERE bozkatuDu='Belgika';
+        String query="SELECT puntuak FROM Bozkaketa WHERE bozkatuDu='"+izena+"'";
+
+        DBKudeatzaile dbKudeatzaile=DBKudeatzaile.getInstantzia();
+        ResultSet emaitza=dbKudeatzaile.execSQL(query);
+        return emaitza;
+    }
 }

@@ -28,7 +28,15 @@ public class HerrialdeHautatuUI implements Initializable{
 
     @FXML
     void onClick(ActionEvent event) {
+        HerrialdeHautatuKud herrialde=new HerrialdeHautatuKud();
+        String bandera=herrialde.lortuBandera(cmbxHerrialde.getValue());
 
+        int puntu=herrialde.puntuakKalkulatu(cmbxHerrialde.getValue());
+        if(puntu==5){
+            mainApp.getErroreaUI().hasieratuTestua(cmbxHerrialde.getValue());
+            mainApp.pantailaratuErrorea();
+        }
+        else mainApp.pantailaratuHerriakBozkatu();
     }
 
 

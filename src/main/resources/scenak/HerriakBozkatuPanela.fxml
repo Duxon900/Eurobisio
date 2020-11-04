@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eurobisio.controllers.ui.HerriakBozkatuUI">
    <children>
-      <TableView layoutX="15.0" layoutY="14.0" prefHeight="317.0" prefWidth="570.0">
+      <TableView fx:id="taula" layoutX="15.0" layoutY="14.0" prefHeight="317.0" prefWidth="570.0">
         <columns>
             <TableColumn fx:id="zutabeArgazki" prefWidth="75.0" />
           <TableColumn fx:id="zutabeHerrialde" prefWidth="75.0" text="Herrialdea" />

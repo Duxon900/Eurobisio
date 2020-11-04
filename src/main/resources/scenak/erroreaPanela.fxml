@@ -6,11 +6,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="273.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eurobisio.controllers.ui.ErroreaUI">
    <children>
       <Button layoutX="267.0" layoutY="201.0" mnemonicParsing="false" onAction="#onClick" prefHeight="26.0" prefWidth="66.0" text="OK" />
-      <Text layoutX="217.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ZEIN HERRI jada banatu ditu bere puntuak" wrappingWidth="165.27197265625" />
+      <Text fx:id="txtHerria" layoutX="217.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADRE -k jada banatu ditu bere puntuak" wrappingWidth="165.27197265625" />
       <ImageView fitHeight="63.0" fitWidth="199.0" layoutX="387.0" layoutY="14.0">
          <image>
             <Image url="@../eurobisioLogo.png" />

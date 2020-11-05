@@ -21,8 +21,8 @@
             <Image url="@../eurobisioLogo.png" />
          </image>
       </ImageView>
-      <Text layoutX="258.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Irabazlea - 69 puntu" />
-      <Label layoutX="257.0" layoutY="215.0" text="irabazle 2 - 69 pntu" />
-      <Label layoutX="258.0" layoutY="258.0" text="irabazle 3 - 69 puntu" />
+      <Label fx:id="txt1" layoutX="257.0" layoutY="184.0" text="1. ADRE - 69 pntu" />
+      <Label fx:id="txt2" layoutX="257.0" layoutY="220.0" text="2. ADRE - 69 pntu" />
+      <Label fx:id="txt3" layoutX="258.0" layoutY="258.0" text="3. ADRE - 69 puntu" />
    </children>
 </AnchorPane>

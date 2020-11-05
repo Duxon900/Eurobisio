@@ -119,4 +119,8 @@ public class Main extends Application {
     public ErroreaUI getErroreaUI() {
         return erroreaUI;
     }
+
+    public TopHiruUI getTopHiruUI() {
+        return topHiruUI;
+    }
 }

@@ -137,6 +137,7 @@ public class HerriakBozkatuUI {
                 herrialdeBozkatuKud.updateDatabase(zutabePuntu.getCellObservableValue(i).getValue(),bozkatzailea,zutabeHerrialde.getCellObservableValue(i).getValue());
             }
         }
+        mainApp.getTopHiruUI().hasieratu();
         mainApp.pantailaratuTopHiru();
     }
 

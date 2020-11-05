@@ -11,4 +11,18 @@ public class HerrialdeBozkatuDBKud {
         DBKudeatzaile dbKudeatzaile=DBKudeatzaile.getInstantzia();
         return dbKudeatzaile.execSQL(query);
     }
+
+    public boolean updateDatabase(int puntuak,String nork, String nori){
+        // INSERT into Bozkaketa (`bozkatuaIzanDa`, `bozkatuDu`, `urtea`, `puntuak`) VALUES ('adaw','awdaw',year(curdate()),'21')
+        String query="INSERT INTO `Bozkaketa` (`bozkatuaIzanDa`, `bozkatuDu`, `urtea`, `puntuak`) VALUES('"+nori+"','"+nork+"',year(curdate()),'"+puntuak+"')";
+
+        try{
+            DBKudeatzaile dbKudeatzaile=DBKudeatzaile.getInstantzia();
+            dbKudeatzaile.execSQL(query);
+            System.out.println(query);
+            return true;
+        }catch (NullPointerException e){
+            return false;
+        }
+    }
 }

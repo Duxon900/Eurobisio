@@ -36,7 +36,11 @@ public class HerrialdeHautatuUI implements Initializable{
             mainApp.getErroreaUI().hasieratuTestua(cmbxHerrialde.getValue());
             mainApp.pantailaratuErrorea();
         }
-        else mainApp.pantailaratuHerriakBozkatu();
+        else {
+            mainApp.getHerriakBozkatuUI().setBozkatzailea(cmbxHerrialde.getValue());
+            mainApp.getHerriakBozkatuUI().hasieratu(cmbxHerrialde.getValue());
+            mainApp.pantailaratuHerriakBozkatu();
+        }
     }
 
 

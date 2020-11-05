@@ -112,6 +112,10 @@ public class Main extends Application {
     }
 
 
+    public HerriakBozkatuUI getHerriakBozkatuUI() {
+        return herriakBozkatuUI;
+    }
+
     public ErroreaUI getErroreaUI() {
         return erroreaUI;
     }

@@ -1,10 +1,23 @@
 package eurobisio.controllers;
 
+import javafx.scene.image.Image;
+
+import java.io.File;
+
 public class Partaide {
     private String herrialdea;
     private String artista;
     private String abestia;
-    private int puntuak;
+    private Integer puntuak;
+    private Image argazkia;
+
+    public Image getArgazkia() {
+        return argazkia;
+    }
+
+    public void setArgazkia(Image argazkia) {
+        this.argazkia = argazkia;
+    }
 
     public String getHerrialdea() {
         return herrialdea;

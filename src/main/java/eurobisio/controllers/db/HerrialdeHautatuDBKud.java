@@ -23,8 +23,8 @@ public class HerrialdeHautatuDBKud {
     }
 
     public ResultSet emandakoPuntuak(String izena){
-        //SELECT puntuak FROM Bozkaketa WHERE bozkatuDu='Belgika';
-        String query="SELECT puntuak FROM Bozkaketa WHERE bozkatuDu='"+izena+"'";
+        //SELECT puntuak FROM Bozkaketa WHERE bozkatuDu='Belgika' AND urtea=year(curdate());
+        String query="SELECT puntuak FROM Bozkaketa WHERE bozkatuDu='"+izena+"' AND urtea=year(curdate())";
 
         DBKudeatzaile dbKudeatzaile=DBKudeatzaile.getInstantzia();
         ResultSet emaitza=dbKudeatzaile.execSQL(query);

@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import javafx.util.converter.IntegerStringConverter;
 
+import java.io.FileNotFoundException;
 import java.net.Inet4Address;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -62,7 +63,6 @@ public class HerriakBozkatuUI {
 
         taula.setEditable(true);
 
-        //        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
         zutabePuntu.setCellValueFactory(new PropertyValueFactory<>("puntuak"));
         zutabeAbesti.setCellValueFactory(new PropertyValueFactory<>("abestia"));
         zutabeArtista.setCellValueFactory(new PropertyValueFactory<>("artista"));
@@ -70,32 +70,21 @@ public class HerriakBozkatuUI {
         zutabeArgazki.setCellValueFactory(new PropertyValueFactory<Partaide,Image>("argazkia"));
 
 
-        zutabePuntu.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        Callback<TableColumn<Partaide,Integer>,TableCell<Partaide,Integer>> defaultTextFactory=TextFieldTableCell.forTableColumn(new IntegerStringConverter());
 
-//        zutabePuntu.setOnEditCommit(t -> {
-//            if (!t.getTableView().getItems().get(t.getTablePosition().getRow()).getHerrialdea().equals(izena)){
-//                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPuntuak(t.getNewValue());
-//            }
-//            else{
-//                zutabePuntu.setCellValueFactory(new PropertyValueFactory<>("puntuak"));
-//            }
-//        });
+        zutabePuntu.setOnEditCommit(t -> {
+            if (!t.getTableView().getItems().get(t.getTablePosition().getRow()).getHerrialdea().equals(izena)){
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPuntuak(t.getNewValue());
+            }
+        });
 
-        Callback<TableColumn<Partaide, String>, TableCell<Partaide, String>> defaultTextFieldCellFactory = TextFieldTableCell.<Partaide>forTableColumn();
-
-
-        zutabeHerrialde.setCellFactory(col -> {
-            col.setEditable(false);
-            var ilara = defaultTextFieldCellFactory.call(col).getTableRow();
-            var cell=defaultTextFieldCellFactory.call(col);
+        zutabePuntu.setCellFactory(col -> {
+            var cell=defaultTextFactory.call(col);
 
             cell.setOnMouseClicked(event -> {
                 if (!cell.isEmpty()) {
                     if (cell.getTableView().getSelectionModel().getSelectedItem().getHerrialdea().equals(izena)) {
                         cell.setEditable(false);
-                        var emaitza=cell.getTableRow();
-                        emaitza.setEditable(false);
-
                     } else {
                         cell.setEditable(true);
                     }
@@ -137,9 +126,12 @@ public class HerriakBozkatuUI {
                 herrialdeBozkatuKud.updateDatabase(zutabePuntu.getCellObservableValue(i).getValue(),bozkatzailea,zutabeHerrialde.getCellObservableValue(i).getValue());
             }
         }
-        mainApp.getTopHiruUI().hasieratu();
-        mainApp.pantailaratuTopHiru();
+        try {
+            mainApp.getTopHiruUI().hasieratu();
+            mainApp.pantailaratuTopHiru();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
-
 
 }

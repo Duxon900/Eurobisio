@@ -24,5 +24,8 @@
       <Label fx:id="txt1" layoutX="257.0" layoutY="184.0" text="1. ADRE - 69 pntu" />
       <Label fx:id="txt2" layoutX="257.0" layoutY="220.0" text="2. ADRE - 69 pntu" />
       <Label fx:id="txt3" layoutX="258.0" layoutY="258.0" text="3. ADRE - 69 puntu" />
+      <ImageView fx:id="imgIrabazle1" fitHeight="39.0" fitWidth="70.0" layoutX="171.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgIrabazle2" fitHeight="39.0" fitWidth="70.0" layoutX="171.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgirabazle3" fitHeight="39.0" fitWidth="70.0" layoutX="171.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

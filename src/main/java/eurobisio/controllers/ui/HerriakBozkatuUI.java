@@ -17,10 +17,7 @@ import javafx.util.Callback;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.io.FileNotFoundException;
-import java.net.Inet4Address;
-import java.net.URL;
 import java.sql.ResultSet;
-import java.util.ResourceBundle;
 
 public class HerriakBozkatuUI {
 
@@ -50,12 +47,11 @@ public class HerriakBozkatuUI {
         this.mainApp = mainApp;
     }
 
-
     public void setBozkatzailea(String bozkatzailea) {
         this.bozkatzailea = bozkatzailea;
     }
 
-    public void hasieratu(String izena){
+    public void hasieratu(){
         HerrialdeBozkatuKud herrialdeBozkatuKud=new HerrialdeBozkatuKud();
         ResultSet datuak=herrialdeBozkatuKud.lortuHerriak();
 
@@ -73,7 +69,7 @@ public class HerriakBozkatuUI {
         Callback<TableColumn<Partaide,Integer>,TableCell<Partaide,Integer>> defaultTextFactory=TextFieldTableCell.forTableColumn(new IntegerStringConverter());
 
         zutabePuntu.setOnEditCommit(t -> {
-            if (!t.getTableView().getItems().get(t.getTablePosition().getRow()).getHerrialdea().equals(izena)){
+            if (!t.getTableView().getItems().get(t.getTablePosition().getRow()).getHerrialdea().equals(bozkatzailea)){
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setPuntuak(t.getNewValue());
             }
         });
@@ -83,7 +79,7 @@ public class HerriakBozkatuUI {
 
             cell.setOnMouseClicked(event -> {
                 if (!cell.isEmpty()) {
-                    if (cell.getTableView().getSelectionModel().getSelectedItem().getHerrialdea().equals(izena)) {
+                    if (cell.getTableView().getSelectionModel().getSelectedItem().getHerrialdea().equals(bozkatzailea)) {
                         cell.setEditable(false);
                     } else {
                         cell.setEditable(true);
@@ -94,21 +90,21 @@ public class HerriakBozkatuUI {
         });
 
 
-            zutabeArgazki.setCellFactory(p -> new TableCell<>() {
-            public void updateItem(Image image, boolean empty) {
-                if (image != null && !empty){
-                    final ImageView imageview = new ImageView();
-                    imageview.setFitHeight(30);
-                    imageview.setFitWidth(50);
-                    imageview.setImage(image);
-                    setGraphic(imageview);
-                    setAlignment(Pos.CENTER);
-                }else{
-                    setGraphic(null);
-                    setText(null);
-                }
-            };
-        });
+        zutabeArgazki.setCellFactory(p -> new TableCell<>() {
+        public void updateItem(Image image, boolean empty) {
+            if (image != null && !empty){
+                final ImageView imageview = new ImageView();
+                imageview.setFitHeight(30);
+                imageview.setFitWidth(50);
+                imageview.setImage(image);
+                setGraphic(imageview);
+                setAlignment(Pos.CENTER);
+            }else{
+                setGraphic(null);
+                setText(null);
+            }
+        };
+    });
 
         taula.setItems(lista);
     }
@@ -118,20 +114,38 @@ public class HerriakBozkatuUI {
     void onClick(ActionEvent event) {
         HerrialdeBozkatuKud herrialdeBozkatuKud=new HerrialdeBozkatuKud();
         int luzera=taula.getItems().size();
+        int emaitza=0;
+
         for (int i=0;i<luzera;i++){
             Integer lag=zutabePuntu.getCellData(i);
 
-            if (lag>0){
-                //sartu datu berriak Bozkatu taulan
-                herrialdeBozkatuKud.updateDatabase(zutabePuntu.getCellObservableValue(i).getValue(),bozkatzailea,zutabeHerrialde.getCellObservableValue(i).getValue());
+            emaitza=emaitza+lag;
+        }
+
+        //konprobatu 5 baino gutxiago direla puntuak
+        Integer unekoak=herrialdeBozkatuKud.lortuPuntuak(bozkatzailea);
+
+        if (emaitza+unekoak<=5 ){
+            for (int i=0;i<luzera;i++){
+                Integer lag=zutabePuntu.getCellData(i);
+
+                if (lag>0) {
+                    //sartu datu berriak Bozkatu taulan
+                    herrialdeBozkatuKud.updateDatabase(zutabePuntu.getCellObservableValue(i).getValue(), bozkatzailea, zutabeHerrialde.getCellObservableValue(i).getValue());
+                }
             }
         }
+        else {
+            System.out.println("konprobatu puntuak");
+        }
+
         try {
             mainApp.getTopHiruUI().hasieratu();
             mainApp.pantailaratuTopHiru();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+
         }
+
     }
 
 }

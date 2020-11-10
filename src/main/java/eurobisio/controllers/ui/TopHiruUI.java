@@ -71,7 +71,7 @@ public class TopHiruUI{
                     argazki=new Image(izena);
                     imgIrabazle1.setImage(argazki);
 
-                    txt1.setText("1. "+lista1[1]+" - "+lista1[0]+" puntu ditu");
+                    txt1.setText("1. "+lista1[1]+" - "+lista1[0]+" points/pua");
 
 
                 }
@@ -84,7 +84,7 @@ public class TopHiruUI{
                     argazki=new Image(izena);
                     imgIrabazle2.setImage(argazki);
 
-                    txt2.setText("1. "+lista2[1]+" - "+lista2[0]+" puntu ditu");
+                    txt2.setText("1. "+lista2[1]+" - "+lista2[0]+" points/pua");
                 }
                 else if(i==2){
                     //3. posi
@@ -96,7 +96,7 @@ public class TopHiruUI{
                     imgirabazle3.setImage(argazki);
 
 
-                    txt3.setText("1. "+lista3[1]+" - "+lista3[0]+" puntu ditu");
+                    txt3.setText("1. "+lista3[1]+" - "+lista3[0]+" points/pua");
                 }
             }
         }

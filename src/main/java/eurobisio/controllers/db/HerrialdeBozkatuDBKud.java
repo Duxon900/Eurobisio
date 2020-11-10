@@ -25,4 +25,12 @@ public class HerrialdeBozkatuDBKud {
             return false;
         }
     }
+
+    public ResultSet lortuPuntuak(String izena){
+        //SELECT sum(puntuak) as totala FROM Bozkaketa where 'Albania'=bozkatuDu and urtea=year(curdate()) group by bozkatuDu
+        String query="SELECT sum(puntuak) as totala FROM Bozkaketa where bozkatuDu='"+izena+"' and urtea=year(curdate()) group by bozkatuDu";
+        DBKudeatzaile dbKudeatzaile=DBKudeatzaile.getInstantzia();
+
+        return dbKudeatzaile.execSQL(query);
+    }
 }

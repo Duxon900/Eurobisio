@@ -21,11 +21,10 @@ public class HerrialdeBozkatuKud {
 
     public ResultSet lortuHerriak(){
         HerrialdeBozkatuDBKud herrialdeBozkatuDBKud=new HerrialdeBozkatuDBKud();
-
         ResultSet resultSet=herrialdeBozkatuDBKud.lortuHerriak();
-
         return resultSet;
     }
+
 
     public ObservableList<Partaide> listaBihurtu(ResultSet resultSet){
         ObservableList<Partaide> emaitza=FXCollections.observableArrayList();
@@ -52,9 +51,20 @@ public class HerrialdeBozkatuKud {
 
 
     public boolean updateDatabase(int puntuak,String nork, String nori){
-
         HerrialdeBozkatuDBKud herrialdeBozkatuDBKud=new HerrialdeBozkatuDBKud();
         return herrialdeBozkatuDBKud.updateDatabase(puntuak,nork,nori);
+    }
+
+
+    public Integer lortuPuntuak(String izena){
+        HerrialdeBozkatuDBKud herrialdeBozkatuDBKud=new HerrialdeBozkatuDBKud();
+        ResultSet resultSet=herrialdeBozkatuDBKud.lortuPuntuak(izena);
+        try{
+            resultSet.next();
+            return resultSet.getInt("totala");
+        } catch (SQLException e) {
+            return 0;
+        }
     }
 
 }

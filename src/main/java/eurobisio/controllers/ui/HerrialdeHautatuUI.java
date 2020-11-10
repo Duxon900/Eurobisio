@@ -32,13 +32,13 @@ public class HerrialdeHautatuUI implements Initializable{
         String bandera=herrialde.lortuBandera(cmbxHerrialde.getValue());
 
         int puntu=herrialde.puntuakKalkulatu(cmbxHerrialde.getValue());
-        if(puntu==5){
+        if(puntu>=5){
             mainApp.getErroreaUI().hasieratuTestua(cmbxHerrialde.getValue());
             mainApp.pantailaratuErrorea();
         }
         else {
             mainApp.getHerriakBozkatuUI().setBozkatzailea(cmbxHerrialde.getValue());
-            mainApp.getHerriakBozkatuUI().hasieratu(cmbxHerrialde.getValue());
+            mainApp.getHerriakBozkatuUI().hasieratu();
             mainApp.pantailaratuHerriakBozkatu();
         }
     }
